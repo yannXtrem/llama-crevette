@@ -1,13 +1,19 @@
 allow_embedding: false
-name: ''
-package_name: Custom_HTML_1
+metadata: {description: Meta LLAMA Instruct Based AI, title: llama Crevette}
+name: llama Crevette
+package_name: llama_crevette
 runtime_options:
   client_version: '3'
-  server_spec: {base: python310-standard}
+  server_spec: {base: python310-datascience}
+  server_spec_disabled:
+    base: python310-datascience
+    requirements: |-
+      gpt4all==2.8.2
+      glibc==0.6.1
   server_version: python3-sandbox
   version: 2
 services:
 - client_config: {}
-  server_config: {}
+  server_config: {auto_create_missing_columns: true}
   source: /runtime/services/tables.yml
 startup_form: Form1
